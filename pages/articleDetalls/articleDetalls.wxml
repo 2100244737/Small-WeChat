@@ -1,0 +1,21 @@
+<!--pages/articleDetalls/articleDetalls.wxml-->
+<import src="../../wxParse/wxParse.wxml"></import>
+<view class="article-details">
+    <view class="img-wrap">
+        <image class="img" src="{{article.img}}"></image>
+    </view>
+    <view class="author-mgs">
+        <image class="avatar" src="{{article.authorAvatar}}"></image>
+        <text class="author">{{article.author}}</text>
+        <text class="publish">发表于</text>
+        <after-time class="day" date="{{article.update_time}}"></after-time>
+    </view>
+    <view class="title">{{article.title}}</view>
+    <view class="menu">
+        <button  class="iconfont icon-icon_shouchang_xian"></button>
+        <button open-type="share"  class="iconfont icon-fen_xiang"></button>
+    </view>
+    <view class="content">
+        <template is="wxParse" data="{{wxParseData: content.nodes}}"></template>
+    </view>
+</view>
