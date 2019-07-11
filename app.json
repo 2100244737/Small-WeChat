@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/articleDetalls/articleDetalls",
     "pages/movie/movie",
-    "pages/movieDtails/movieDtails"
+    "pages/movieDtails/movieDtails",
+    "pages/login/login"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -26,6 +27,12 @@
         "text": "电影",
         "iconPath": "./utils/avatar/02.png",
         "selectedIconPath": "./utils/avatar/02s.png"
+      },
+      {
+        "pagePath": "pages/login/login",
+        "text": "登录",
+        "iconPath": "./utils/avatar/03.png",
+        "selectedIconPath": "./utils/avatar/03s.png"
       }
     ]
   },
