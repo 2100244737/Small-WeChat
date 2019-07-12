@@ -4,7 +4,8 @@
     "pages/articleDetalls/articleDetalls",
     "pages/movie/movie",
     "pages/movieDtails/movieDtails",
-    "pages/login/login"
+    "pages/history/history",
+    "pages/movie_history/movie_history"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -29,8 +30,8 @@
         "selectedIconPath": "./utils/avatar/02s.png"
       },
       {
-        "pagePath": "pages/login/login",
-        "text": "登录",
+        "pagePath": "pages/history/history",
+        "text": "播放记录",
         "iconPath": "./utils/avatar/03.png",
         "selectedIconPath": "./utils/avatar/03s.png"
       }

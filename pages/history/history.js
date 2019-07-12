@@ -1,4 +1,4 @@
-// pages/login/login.js
+// pages/history/history.js
 const axios =require('../../utils/axios')
 Page({
 
@@ -6,22 +6,38 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+  history: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+  this.getHistory()
   },
-   login(){
-    wx.login({
-      success(res) {
-
-      }
+  getHistory() {
+   axios.get('/movie_history').then(res => {
+     var str = ''
+     this.setData({
+       history: res.data.map(item =>{
+         // item.percent =(item.continueTime / (item.movie.mins *60))*100
+         if (item.continueTime < 60) {
+            str = '观看不足一分钟'
+         } else {
+           str = `已观看${Math.random(item.continueTime / 60)}分钟`
+         }
+         item.str = str
+         return item
+       })
+     })
+   })
+  },
+  jump (e) {
+    const {id} = e.currentTarget.dataset;
+    wx.navigateTo({
+      url: `/pages/movie_history/movie_history?id=${id}`
     })
-   },
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

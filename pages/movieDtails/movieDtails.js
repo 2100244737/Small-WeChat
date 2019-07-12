@@ -9,7 +9,8 @@ Page({
         movieData: {},
         url: '',
         activeIndex: 0,
-        guessData: []
+        guessData: [],
+        currentTime: 0
     },
 
     /**
@@ -28,7 +29,7 @@ Page({
         })
     },
     getGuess(id) {
-        axios.get('/guess',{id}).then(res => {
+        axios.get('/guess', {id}).then(res => {
             this.setData({
                 guessData: res.data.map(item => {
                     item.actorStr = item.actors.join(' ')
@@ -37,6 +38,12 @@ Page({
             })
         })
     },
+    getCurrentTime(e) {
+    const {currentTime} = e.detail;
+       this.setData({
+           currentTime
+       })
+    },
     changeUrl(e) {
         const index = e.target.dataset.index
         this.setData({
@@ -44,11 +51,21 @@ Page({
             activeIndex: Number(index)
         })
     },
+    uploadPlayStatus () {
+        axios.post('/movie_history', {
+            movie_id: this.data.movieData._id,
+            current_time: this.data.currentTime,
+            index:this.data.activeIndex
+        })
+    },
+    jump () {
+
+    },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function () {
-
+        this.uploadPlayStatus()
     },
 
     /**
@@ -69,7 +86,7 @@ Page({
      * 生命周期函数--监听页面卸载
      */
     onUnload: function () {
-
+       this.uploadPlayStatus()
     },
 
     /**

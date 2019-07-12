@@ -2,7 +2,7 @@
 <view class="movie-details">
     <video class="video"
            id="video"
-            src="{{url}}"
+           src="{{url}}"
            controls="{{true}}"
            show-fullscreen-btn="{{true}}"
            show-play-btn="{{true}}"
@@ -16,7 +16,7 @@
     ></video>
     <view class="play-list">
         <button wx:for="{{movieData.linksTitle}}"
-             wx:for-item="item"
+                wx:for-item="item"
                 wx:key="{{index}}"
                 bindtap="changeUrl"
                 data-index="{{index}}"
@@ -33,7 +33,7 @@
             </view>
         </view>
         <view class="douban">
-                豆瓣评分：{{movieData.grade}}
+            豆瓣评分：{{movieData.grade}}
         </view>
         <view class="desc-content">{{movieData.plot}}</view>
     </view>
