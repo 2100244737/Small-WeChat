@@ -24,7 +24,7 @@ Page({
          if (item.continueTime < 60) {
             str = '观看不足一分钟'
          } else {
-           str = `已观看${Math.random(item.continueTime / 60)}分钟`
+           str = `已观看${Math.round(item.continueTime / 60)}分钟`
          }
          item.str = str
          return item
